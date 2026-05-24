@@ -249,7 +249,7 @@
                 {"nazev": "Arašídové máslo", "mnozstvi": 20, "jednotka": "g"}, 
                 {"nazev": "Vejce", "mnozstvi": 1, "jednotka": "kus"}
             ],
-            "postup": "1. Troubu si předehřejeme na 180°. V misce smícháme arašídové máslo, česnek, mletý kmín, uzenou papriku, sůl a pepř and vejce.\n2. Ve směsi obalíme maso a dáme na plech. Pečeme cca 25-35 minut na 180°."
+            "postup": "Troubu si předehřejeme na 180°. V misce smícháme arašídové máslo, česnek, mletý kmín, uzenou papriku, sůl a pepř and vejce. Ve směsi obalíme maso a dáme na plech. Pečeme cca 25-35 minut na 180°."
         }, 
         {
             "id": 3,
@@ -263,7 +263,7 @@
                 {"nazev": "Batáty", "mnozstvi": 40, "jednotka": "g"}, 
                 {"nazev": "Ovesné vločky", "mnozstvi": 50, "jednotka": "g"}
             ],
-            "postup": "1. Batátu oloupeme, nakrájíme na menší kostky. Dáme na plech and pečeme. Poté rozmixujeme do pyré.\n2. Troubu předehřejeme na 170°. Quinou uvaříme, scedíme cizrnu a dáme společně se vším ostatním a petrželí, koriandrem, solí a pepřem do mixéru. Rozmixujeme, smícháme s quinoou. Pečeme v troubě na 170° cca 25 minut."
+            "postup": "Batátu oloupeme, nakrájíme na menší kostky. Dáme na plech and pečeme. Poté rozmixujeme do pyré. Troubu předehřejeme na 170°. Quinou uvaříme, scedíme cizrnu a dáme společně se vším ostatním a petrželí, koriandrem, solí a pepřem do mixéru. Rozmixujeme, smícháme s quinoou. Pečeme v troubě na 170° cca 25 minut."
         }, 
         {
             "id": 4,
@@ -276,7 +276,7 @@
                 {"nazev": "Špaldová mouka", "mnozstvi": 50, "jednotka": "g"}, 
                 {"nazev": "Mléko", "mnozstvi": 100, "jednotka": "g"}
             ],
-            "postup": "1. 1-2 dny starý rohlík nakrájíme na menší kousky. Přidáme k němu mouku, sůl, pažitku. Promícháme. Přidáme žloutek, teplé mléko a promícháme.\n2. Z bílku vyšleháme tuhý sníh a pomalu ho zamícháme do směsi.\n3. Hrnky na čaj vymažeme olejem a naplníme cca 2 cm pod okraj. Dáme do hrnce a zalijeme horkou vodou zhruba do poloviny hrnku. Hrnec zakryjeme utěrkou a následně i pokličkou. Dáme na plotnu a necháme 20 minut vařit od doby, kdy voda dosáhne doby varu."
+            "postup": "1-2 dny starý rohlík nakrájíme na menší kousky. Přidáme k němu mouku, sůl, pažitku. Promícháme. Přidáme žloutek, teplé mléko a promícháme. Z bílku vyšleháme tuhý sníh a pomalu ho zamícháme do směsi. Hrnky na čaj vymažeme olejem a naplníme cca 2 cm pod okraj. Dáme do hrnce a zalijeme horkou vodou zhruba do poloviny hrnku. Hrnec zakryjeme utěrkou a následně i pokličkou. Dáme na plotnu a necháme 20 minut vařit od doby, kdy voda dosáhne doby varu."
         }, 
         {
             "id": 5,
@@ -808,7 +808,7 @@
                 {"nazev": "Kuřecí prsa", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Olej", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Bílý jogurt", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Sriracha", "mnozstvi": 0, "jednotka": ""}, 
+                {"riracha": 0, "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Sweet chilli omáčka", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Med", "mnozstvi": 0, "jednotka": ""} 
             ],
@@ -838,7 +838,7 @@
                 {"nazev": "Mleté kuřecí", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Strouhanka", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Hladká mouka", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Vejce", "mnozstvi": 0, "jednotka": ""} /* OPRAVENO: Doplněny uvozovky */
+                {"nazev": "Vejce", "mnozstvi": 0, "jednotka": ""}
             ],
             "postup": "Maso smícháme s moukou, kořením (sůl, pepř, paprika mletá, česnek, cibule) a přidáme vejce. Posypeme strouhankou. Vytvoříme nugetky, obalíme ve strouhance a pečeme 20-25 minut na 200°."
         }, 
@@ -1030,7 +1030,7 @@
                 {"nazev": "Slepičí bujon", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Smetana na vaření", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Parmezán", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Máslo", "mnozstvi": 0, "jednotka": ""} /* OPRAVENO: Doplněno kompletní prázdné pole */
+                {"nazev": "Máslo", "mnozstvi": 0, "jednotka": ""}
             ],
             "postup": "Uvaříme špagety. Rozehřejeme olej, přidáme sušená rajčata a cibuli. Přidáme koření. Přidáme vývar, povaříme. Přilijeme smetanu, sýr a máslo a nakonec přidáme špagety."
         }, 
@@ -1058,11 +1058,7 @@
     // GENERUJEME SPÍŽ
     const spizContainer = document.getElementById("spiz-seznam");
     vsechnySuroviny.forEach(surovina => {
-    const idSuroviny = surovina
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, "-")
-        .replace(/[^\w-]/g, "");
+        const idSuroviny = surovina.toLowerCase().trim().replace(/ /g, "-");
         const row = document.createElement("div");
         row.className = "surovina-row";
         row.innerHTML = `
@@ -1138,12 +1134,7 @@
             if (recept.obrazek && recept.obrazek !== "") {
                 obrazekHtml = `
                     <div class="recept-img-wrapper">
-                        <img 
-    src="${recept.obrazek}" 
-    class="recept-img" 
-    alt="${recept.nazev}"
-    onerror="this.style.display='none'"
->
+                        <img src="${recept.obrazek}" class="recept-img" alt="${recept.nazev}">
                     </div>
                 `;
             } else {
@@ -1175,9 +1166,7 @@
         aktivniZalozka = novaZalozka;
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         tlacitko.classList.add('active');
-        document.addEventListener("DOMContentLoaded", () => {
-    aktualizujRecepty();
-});
+        aktualizujRecepty();
     }
 
     // První spuštění
