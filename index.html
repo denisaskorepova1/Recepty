@@ -96,7 +96,7 @@
             color: white;
         }
 
-        /* Karty Receptů - Nové rozvržení vedle sebe */
+        /* Karty Receptů - Rozvržení vedle sebe */
         .recept-card {
             background: #ffffff;
             border-radius: 12px;
@@ -177,12 +177,19 @@
             margin-top: 12px;
             border-top: 1px solid var(--border);
             padding-top: 12px;
+            white-space: pre-line; /* Povolí odřádkování na webu */
         }
 
         .recept-postup strong {
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             color: #0f172a;
+        }
+
+        /* Styl pro každý jednotlivý krok postupu, aby měl pod sebou mezeru */
+        .recept-postup-krok {
+            display: block;
+            margin-bottom: 8px;
         }
 
         .empty-message {
@@ -231,7 +238,8 @@
                 {"nazev": "Citronová šťáva", "mnozstvi": 10, "jednotka": "g"}, 
                 {"nazev": "Olej", "mnozstvi": 5, "jednotka": "g"}
             ],
-            "postup": "Troubu si předehřejeme na 190°, připravíme plech s pečícím papírem. Všechny ingredience smícháme do hladka spolu s: petrželí, sezamovými semínky, česnek, sůl, pepř. Vytvarujeme kuličky. Pečeme 20-25 minut na 190°." 
+            // TADY JE TVŮJ NOVÝ FORMÁT S ODSTAVCI POMOCÍ \n
+            "postup": "1. Troubu si předehřejeme na 190°, připravíme plech s pečícím papírem.\n2. Všechny ingredience smícháme do hladka spolu s: petrželí, sezamovými semínky, česnek, sůl, pepř. Vytvarujeme kuličky.\n3. Pečeme 20-25 minut na 190°." 
         }, 
         {
             "id": 2,
@@ -552,7 +560,7 @@
                 {"nazev": "Lučina", "mnozstvi": 20, "jednotka": "g"},
                 {"nazev": "Sušená rajčata", "mnozstvi": 20, "jednotka": "g"}
             ],
-            "postup": "Nakrájíme zeleninu – rajčata, papriky, cibuli. Přidáme česnek, olej, tymián, sůl, pepř a promícháme. Pečeme na 180° cca 30 minut. Po upečení dáme do mixéru, přidáme bazalku, lučinu a rozmixujeme."
+            "postup": "Nakrájíme zeleninu – rajčata, papriky, cibuli. Přidáme česnek, olej, tymián, sůl, pepř a promícháme. Pečeme na 180° cca 30 minut. After upečení dáme do mixéru, přidáme bazalku, lučinu a rozmixujeme."
         }, 
         {
             "id": 24,
@@ -566,7 +574,7 @@
                 {"nazev": "Hořčice", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Bageta", "mnozstvi": 0, "jednotka": ""}
             ],
-            "postup": "Cibuli na pánvi vysmažíme dozlatova na másle. Přidáme čerstvé bylinky, cukr a hořčici. Necháme chvíli zkaramelizovat. Hermelín uděláme. Bagetu nakrájíme na plátky, máslo rozpustíme, smícháme with bylinkami a solí. Namažeme na bagetky a opečeme."
+            "postup": "Cibuli na pánvi vysmažíme dozlatova na másle. Přidáme čerstvé bylinky, cukr a hořčici. Necháme chvíli zkaramelizovat. Hermelín uděláme. Bagetu nakrájíme na plátky, máslo rozpustíme, smícháme s bylinkami a solí. Namažeme na bagetky a opečeme."
         }, 
         {
             "id": 25,
@@ -681,7 +689,7 @@
                 {"nazev": "Těstoviny", "mnozstvi": 60, "jednotka": "g"},
                 {"nazev": "Mozzarella", "mnozstvi": 40, "jednotka": "g"}
             ],
-            "postup": "Maso nakrájíme na malé kousky a v zapékací misce ho smícháme s nakrájenou paprikou, cibulí, těstovinami, kořením, rajčaty, vodou a žervé. Zakryjeme alobalem. Pečeme 20 minut na 180°. Odstraníme alobal, posypeme mozzarellou a dáme ještě na 5 minut zapéct."
+            "postup": "Maso nakrájíme na malé kousky a v zapékací misce ho smícháme s nakrájenou paprikou, cibulí, těstovinami, kořením, rajčaty, vodou a žervé. Zakryjeme alobalem. Pečeme 20 minut na 180°. Odstraníme alobol, posypeme mozzarellou a dáme ještě na 5 minut zapéct."
         }, 
         {
             "id": 32,
@@ -1024,7 +1032,7 @@
                 {"nazev": "Slepičí bujon", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Smetana na vaření", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Parmezán", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Máslo", "mnozstvi": 0, "jednotka": ""}
+                {"nazev": "Máslo", "mnozstvi": 0, "jednotka"}
             ],
             "postup": "Uvaříme špagety. Rozehřejeme olej, přidáme sušená rajčata a cibuli. Přidáme koření. Přidáme vývar, povaříme. Přilijeme smetanu, sýr a máslo a nakonec přidáme špagety."
         }, 
@@ -1135,6 +1143,12 @@
                 card.style.gridTemplateColumns = "1fr";
             }
 
+            // TADY: Rozsekáme postup podle značky \n a obalíme každý řádek do třídy
+            const krokyPostupu = recept.postup
+                .split('\n')
+                .map(krok => `<span class="recept-postup-krok">${krok}</span>`)
+                .join("");
+
             card.innerHTML = `
                 <div class="recept-body">
                     <div class="recept-header">
@@ -1142,7 +1156,7 @@
                         <span class="recept-tag">${recept.kategorie.trim()}</span>
                     </div>
                     <ul class="recept-ingredience">${ingList}</ul>
-                    <div class="recept-postup"><strong>Postup:</strong> ${recept.postup}</div>
+                    <div class="recept-postup"><strong>Postup:</strong>${krokyPostupu}</div>
                 </div>
                 ${obrazekHtml}
             `;
