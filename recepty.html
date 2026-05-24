@@ -95,7 +95,8 @@
             background: var(--primary);
             color: white;
         }
-        
+
+        /* Karty Receptů - Nové rozvržení vedle sebe */
         .recept-card {
             background: #ffffff;
             border-radius: 12px;
@@ -103,25 +104,21 @@
             border: 1px solid var(--border);
             box-shadow: 0 2px 4px rgb(0 0 0 / 0.02);
             overflow: hidden;
-            
-            /* Tvoříme dva sloupce: vlevo text, vpravo obrázek */
             display: grid;
             grid-template-columns: 1fr 300px; 
-            align-items: stretch; /* Obrázek se natáhne na výšku textu */
+            align-items: stretch;
         }
 
-        /* Pokud se stránka zúží (např. na mobilu), skočí obrázek klasicky nahoru */
         @media (max-width: 600px) {
             .recept-card {
                 grid-template-columns: 1fr;
             }
             .recept-img-wrapper {
                 height: 200px !important;
-                order: -1; /* Obrázek bude na mobilu první */
+                order: -1;
             }
         }
 
-        /* Vnitřní okraj pro texty */
         .recept-body {
             padding: 25px;
             display: flex;
@@ -129,19 +126,17 @@
             justify-content: center;
         }
 
-        /* Speciální obal na obrázek, aby držel proporce */
         .recept-img-wrapper {
             position: relative;
-            background: #f8fafc; /* Světlé pozadí pro případ, že by fotka nevyplnila celý prostor */
+            background: #f8fafc;
             border-left: 1px solid var(--border);
         }
 
-        /* Samotný obrázek - dynamicky se přizpůsobí a ukáže se CELÝ */
         .recept-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* TADY: Způsobí, že se fotka nikdy neořízne a zobrazí se celá */
-            padding: 10px; /* Drobný odstup, aby fotka nebyla nalepená na krajích */
+            object-fit: contain;
+            padding: 10px;
             box-sizing: border-box;
         }
 
@@ -224,7 +219,7 @@
 </div>
 
 <script>
-    // 1. OPRAVENÁ DATABÁZE RECEPTŮ
+    // DATABÁZE RECEPTŮ (1 - 54)
     const recepty = [
         {
             "id": 1,
@@ -290,7 +285,7 @@
                 {"nazev": "Mrkev", "mnozstvi": 40, "jednotka": "g"}, 
                 {"nazev": "Olej", "mnozstvi": 5, "jednotka": "g"} 
             ],
-            "postup": "Uvaříme rýžové nudle podle návodu, scedíme a propláchneme. Nakrájíme maso na nudličky a v misce smícháme s polovinou sójové omáčky. Papriku, mrkev, případně další zeleninu nakrájíme na nudličky. Rozehřejeme olej. Na středním plameni orestujeme maso, přidáme zeleninu a restujeme dalších 5 minut, dokud zelenina nezměkne. Přimícháme uvařené nudle, zalijeme zbytkem sójovky a krátce protřepeme. Posypeme koriandrem, sezamovými semínky."
+            "postup": "Uvaříme rýžové nudle podle návodu, scedíme a propláchneme. Nakrájíme maso na nudličky a v misce smícháme s polovinou sójové omáčky. Papriku, mrkev, případně další zeleninu nakrájíme na nudličky. Rozehřejeme olej. Na středním plameni orestujeme maso, přidáme zeleninu a restujeme dalších 5 minut, dokud zelenina nezmezne. Přimícháme uvařené nudle, zalijeme zbytkem sójovky a krátce protřepeme. Posypeme koriandrem, sezamovými semínky."
         },
         {
             "id": 6,
@@ -336,7 +331,7 @@
         {
             "id": 9,
             "nazev": "Creamy garlic chicken",
-            "kategorie": "Hlavní jídlo", /* OPRAVENO: Smazána nebezpečná mezera před slovem Hlavní */
+            "kategorie": "Hlavní jídlo",
             "obrazek": "",
             "suroviny": [ 
                 {"nazev": "Kuřecí prsa", "mnozstvi": 100, "jednotka": "g"}, 
@@ -359,7 +354,7 @@
                 {"nazev": "Česnek", "mnozstvi": 5, "jednotka": "g"}, 
                 {"nazev": "Olej", "mnozstvi": 5, "jednotka": "g"}
             ],
-            "postup": "Jarní cibulku nakrájíme a smícháme vše dohromady spolu se solí, pepřem a italskými bylinkami. Uděláme kuličky a opečeme dozlatova."
+            "postup": "Jarní cibulku nakrájíme a smícháme vse dohromady spolu se solí, pepřem a italskými bylinkami. Uděláme kuličky a opečeme dozlatova."
         }, 
         {
             "id": 11,
@@ -429,7 +424,7 @@
                 {"nazev": "Ocet", "mnozstvi": 0, "jednotka": ""},
                 {"nazev": "Škrob", "mnozstvi": 0, "jednotka": ""}
             ],
-            "postup": "Maso nakrájíme na nudličky, osolíme, opepříme. Na oleji osmahneme a vyndáme. Přidáme na olej cibuli, papriku, smažíme. Přidáme zázvor. V misce smícháme vývar, škrob, sojovku a ocet. Nalijeme k zelenině, přidáme maso a provaříme." /* OPRAVENO: Odstraněn překlep s přehláskou na konci řádku */
+            "postup": "Maso nakrájíme na nudličky, osolíme, opepříme. Na oleji osmahneme a vyndáme. Přidáme na olej cibuli, papriku, smažíme. Přidáme zázvor. V misce smícháme vývar, škrob, sojovku a ocet. Nalijeme k zelenině, přidáme maso a provaříme."
         }, 
         {
             "id": 15,
@@ -525,15 +520,6 @@
             ],
             "postup": "Gnocchi smícháme se sušeným česnekem, cibulí, postříkáme olejem a dáme do HF na 200° 10-15 minut. Smícháme salát, parmazán, jarní cibulku, opečenou slaninu. Přimícháme gnocchi. Zalijeme zálivkou, do které přidáme sůl, pepř, jogurt, hořčice, česnek, cibule, italské koření." 
         }, 
-        /* {
-            "id": 21,
-            "nazev": "Bylinkové kuřecí kuličky s feta sýrem",
-            "kategorie": "Hlavní jídlo",
-            "obrazek": "",
-            "suroviny": [],
-            "postup": "Zatím nedefinován."
-        }, 
-        */
         {
             "id": 22,
             "nazev": "Kuřecí paličky s kokosovým mlékem",
@@ -566,7 +552,7 @@
                 {"nazev": "Lučina", "mnozstvi": 20, "jednotka": "g"},
                 {"nazev": "Sušená rajčata", "mnozstvi": 20, "jednotka": "g"}
             ],
-            "postup": "Nakrájíme zeleninu – rajčata, papriky, cibuli. Přidáme česnek, olej, tymián, sůl, pepř a promícháme. Pečeme na 180° cca 30 minut. Po upečení dáme do mixéu, přidáme bazalku, lučinu a rozmixujeme."
+            "postup": "Nakrájíme zeleninu – rajčata, papriky, cibuli. Přidáme česnek, olej, tymián, sůl, pepř a promícháme. Pečeme na 180° cca 30 minut. Po upečení dáme do mixéru, přidáme bazalku, lučinu a rozmixujeme."
         }, 
         {
             "id": 24,
@@ -580,7 +566,7 @@
                 {"nazev": "Hořčice", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Bageta", "mnozstvi": 0, "jednotka": ""}
             ],
-            "postup": "Cibuli na pánvi vysmažíme dozlatova na maisle. Přidáme čerstvé bylinky, cukr a hořčici. Necháme chvíli zkaramelizovat. Hermelín uděláme. Bagetu nakrájíme na plátky, máslo rozpustíme, smícháme s bylinkami a solí. Namažeme na bagetky a opečeme."
+            "postup": "Cibuli na pánvi vysmažíme dozlatova na másle. Přidáme čerstvé bylinky, cukr a hořčici. Necháme chvíli zkaramelizovat. Hermelín uděláme. Bagetu nakrájíme na plátky, máslo rozpustíme, smícháme with bylinkami a solí. Namažeme na bagetky a opečeme."
         }, 
         {
             "id": 25,
@@ -695,7 +681,7 @@
                 {"nazev": "Těstoviny", "mnozstvi": 60, "jednotka": "g"},
                 {"nazev": "Mozzarella", "mnozstvi": 40, "jednotka": "g"}
             ],
-            "postup": "Maso nakrájíme na malé kousky and v zapékací misce ho smícháme s nakrájenou paprikou, cibulí, těstovinami, kořením, rajčaty, vodou a žervé. Zakryjeme alobalem. Pečeme 20 minut na 180°. Odstraníme alobal, posypeme mozzarellou a dáme ještě na 5 minut zapéct."
+            "postup": "Maso nakrájíme na malé kousky a v zapékací misce ho smícháme s nakrájenou paprikou, cibulí, těstovinami, kořením, rajčaty, vodou a žervé. Zakryjeme alobalem. Pečeme 20 minut na 180°. Odstraníme alobal, posypeme mozzarellou a dáme ještě na 5 minut zapéct."
         }, 
         {
             "id": 32,
@@ -790,7 +776,7 @@
                 {"nazev": "Smetana na vaření", "mnozstvi": 15, "jednotka": "ml"},
                 {"nazev": "Rýže", "mnozstvi": 60, "jednotka": "g"}
             ],
-            "postup": "Cibuli nakrájíme najemno. Vývar promícháme with moukou. Rozehřejeme olej, orestujeme maso, osolíme, opepříme. Orestujeme cibuli a kmín. Pokud je potřeba, přidáme olej. Vlijeme vývar s moukou a na mírném stupni provaříme cca 10 minut. Vložíme maso, přidáme smetanu, bylinky, sůl, pepř, povaříme."
+            "postup": "Cibuli nakrájíme najemno. Vývar promícháme s moukou. Rozehřejeme olej, orestujeme maso, osolíme, opepříme. Orestujeme cibuli a kmín. Pokud je potřeba, přidáme olej. Vlijeme vývar s moukou a na mírném stupni provaříme cca 10 minut. Vložíme maso, přidáme smetanu, bylinky, sůl, pepř, povaříme."
         }, 
         {
             "id": 38,
@@ -927,7 +913,7 @@
                 {"nazev": "Okurka", "mnozstvi": 0, "jednotka": ""},
                 {"nazev": "Bílý jogurt", "mnozstvi": 0, "jednotka": ""}
             ],
-            "postup": "Kuřecí prsa nakrájíme na kostky a smícháme s kořením. Napícháme na špejle a dáme na 30 minut do lednice. Mátu a kopr nakrájíme na jemno. Nastrouháme okurku, osolíme a počkáme cca 10 minut, než okurka pustí vodu. Mezitím smícháme kopr, mátu, jogurt, česnek. Z okurky vymačkáme vodu a dáme k ostatním věcem. Špízy opečeme na pánvi/v troubě/v air fryeru."
+            "postup": "Kuřecí prsa nakrájíme na kostky a smícháme s kořením. Napícháme na špejle a dáme na 30 minut do lednice. Mátu a kopr nakrájiamo na jemno. Nastrouháme okurku, osolíme a počkáme cca 10 minut, než okurka pustí vodu. Mezitím smícháme kopr, mátu, jogurt, česnek. Z okurky vymačkáme vodu a dáme k ostatním věcem. Špízy opečeme na pánvi/v troubě/v air fryeru."
         }, 
         {
             "id": 47,
@@ -1059,7 +1045,6 @@
     ];
 
     // Seznam unikátních surovin
-// Seznam unikátních surovin
     const vsechnySuroviny = [...new Set(recepty.flatMap(r => r.suroviny.map(s => s.nazev)))].sort((a, b) => a.localeCompare(b, 'cs'));
 
     let aktivniZalozka = "co-mam-doma";
@@ -1067,7 +1052,6 @@
     // GENERUJEME SPÍŽ
     const spizContainer = document.getElementById("spiz-seznam");
     vsechnySuroviny.forEach(surovina => {
-        // ID políčka musí být striktně malými písmeny, aby ho filtr našel
         const idSuroviny = surovina.toLowerCase().trim().replace(/ /g, "-");
         const row = document.createElement("div");
         row.className = "surovina-row";
@@ -1105,7 +1089,6 @@
 
         if (aktivniZalozka === "co-mam-doma") {
             filtrovaneRecepty = recepty.filter(recept => {
-                // Pokud recept nemá žádné suroviny, přeskočíme ho
                 if (!recept.suroviny || recept.suroviny.length === 0) return false;
 
                 for (const surovina of recept.suroviny) {
@@ -1132,7 +1115,6 @@
             const card = document.createElement("div");
             card.className = "recept-card";
             
-            // Příprava seznamu ingrediencí
             const ingList = recept.suroviny
                 .map(s => {
                     if (s.mnozstvi === 0 && s.jednotka === "") {
@@ -1142,7 +1124,6 @@
                 })
                 .join("");
 
-            // NOVÉ ROZVRŽENÍ OBRÁZKU: Pokud v datech odkaz je, zabalíme ho do wrapperu pro pravou stranu
             let obrazekHtml = "";
             if (recept.obrazek && recept.obrazek !== "") {
                 obrazekHtml = `
@@ -1151,11 +1132,9 @@
                     </div>
                 `;
             } else {
-                // Pokud recept obrázek nemá, roztáhneme text přes celou šířku (zrušíme mřížku dvou sloupců)
                 card.style.gridTemplateColumns = "1fr";
             }
 
-            // Složení karty: Nejdřív textové tělo (vlevo), potom obrázek (vpravo)
             card.innerHTML = `
                 <div class="recept-body">
                     <div class="recept-header">
