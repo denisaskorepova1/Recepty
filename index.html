@@ -776,7 +776,7 @@
             "suroviny": [ 
                 {"nazev": "Cibule", "mnozstvi": 15, "jednotka": "g"},
                 {"nazev": "Slepičí bujon", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Hladká mouka", "mnozstvi": 5, "jedaddotka": "g"},
+                {"nazev": "Hladká mouka", "mnozstvi": 5, "jednotka": "g"},
                 {"nazev": "Olej", "mnozstvi": 5, "jednotka": "g"},
                 {"nazev": "Krůtí maso", "mnozstvi": 100, "jednotka": "g"},
                 {"nazev": "Smetana na vaření", "mnozstvi": 15, "jednotka": "ml"},
@@ -1058,7 +1058,11 @@
     // GENERUJEME SPÍŽ
     const spizContainer = document.getElementById("spiz-seznam");
     vsechnySuroviny.forEach(surovina => {
-        const idSuroviny = sucode = surovina.toLowerCase().trim().replace(/ /g, "-");
+    const idSuroviny = surovina
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]/g, "");
         const row = document.createElement("div");
         row.className = "surovina-row";
         row.innerHTML = `
@@ -1134,7 +1138,12 @@
             if (recept.obrazek && recept.obrazek !== "") {
                 obrazekHtml = `
                     <div class="recept-img-wrapper">
-                        <img src="${recept.obrazek}" class="recept-img" alt="${recept.nazev}">
+                        <img 
+    src="${recept.obrazek}" 
+    class="recept-img" 
+    alt="${recept.nazev}"
+    onerror="this.style.display='none'"
+>
                     </div>
                 `;
             } else {
@@ -1166,7 +1175,9 @@
         aktivniZalozka = novaZalozka;
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         tlacitko.classList.add('active');
-        aktualizujRecepty();
+        document.addEventListener("DOMContentLoaded", () => {
+    aktualizujRecepty();
+});
     }
 
     // První spuštění
