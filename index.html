@@ -776,13 +776,13 @@
             "suroviny": [ 
                 {"nazev": "Cibule", "mnozstvi": 15, "jednotka": "g"},
                 {"nazev": "Slepičí bujon", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Hladká mouka", "mnozstvi": 5, "jednotka": "g"},
+                {"nazev": "Hladká mouka", "mnozstvi": 5, "jedaddotka": "g"},
                 {"nazev": "Olej", "mnozstvi": 5, "jednotka": "g"},
                 {"nazev": "Krůtí maso", "mnozstvi": 100, "jednotka": "g"},
                 {"nazev": "Smetana na vaření", "mnozstvi": 15, "jednotka": "ml"},
                 {"nazev": "Rýže", "mnozstvi": 60, "jednotka": "g"}
             ],
-            "postup": "Cibuli nakrájíme najemno. Vývar promícháme s moukou. Rozehřejeme olej, orestujeme maso, osolíme, opepříme. Orestujeme cibuli and kmín. Pokud je potřeba, přidáme olej. Vlijeme vývar s moukou a na mírném stupni provaříme cca 10 minut. Vložíme maso, přidáme smetanu, bylinky, sůl, pepř, povaříme."
+            "postup": "Cibuli nakrájíme najemno. Vývar promícháme s moukou. Rozehřejeme olej, orestujeme maso, osolíme, opepříme. Orestujeme cibuli a kmín. Pokud je potřeba, přidáme olej. Vlijeme vývar s moukou a na mírném stupni provaříme cca 10 minut. Vložíme maso, přidáme smetanu, bylinky, sůl, pepř, povaříme."
         }, 
         {
             "id": 38,
@@ -838,7 +838,7 @@
                 {"nazev": "Mleté kuřecí", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Strouhanka", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Hladká mouka", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Vejce", "mnozstvi": 0, "jednotka"}
+                {"nazev": "Vejce", "mnozstvi": 0, "jednotka": ""} /* OPRAVENO: Doplněny uvozovky */
             ],
             "postup": "Maso smícháme s moukou, kořením (sůl, pepř, paprika mletá, česnek, cibule) a přidáme vejce. Posypeme strouhankou. Vytvoříme nugetky, obalíme ve strouhance a pečeme 20-25 minut na 200°."
         }, 
@@ -1030,7 +1030,7 @@
                 {"nazev": "Slepičí bujon", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Smetana na vaření", "mnozstvi": 0, "jednotka": ""}, 
                 {"nazev": "Parmezán", "mnozstvi": 0, "jednotka": ""}, 
-                {"nazev": "Máslo", "mnozstvi": 0, "jednotka": ""}
+                {"nazev": "Máslo", "mnozstvi": 0, "jednotka": ""} /* OPRAVENO: Doplněno kompletní prázdné pole */
             ],
             "postup": "Uvaříme špagety. Rozehřejeme olej, přidáme sušená rajčata a cibuli. Přidáme koření. Přidáme vývar, povaříme. Přilijeme smetanu, sýr a máslo a nakonec přidáme špagety."
         }, 
@@ -1058,7 +1058,7 @@
     // GENERUJEME SPÍŽ
     const spizContainer = document.getElementById("spiz-seznam");
     vsechnySuroviny.forEach(surovina => {
-        const idSuroviny = surovina.toLowerCase().trim().replace(/ /g, "-");
+        const idSuroviny = sucode = surovina.toLowerCase().trim().replace(/ /g, "-");
         const row = document.createElement("div");
         row.className = "surovina-row";
         row.innerHTML = `
